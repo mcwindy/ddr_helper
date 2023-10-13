@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.mcwindy.ddrhelper.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home">
+        <argument
+            android:name="playerName"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_map"
+        android:name="com.mcwindy.ddrhelper.ui.map.MapFragment"
+        android:label="@string/menu_map"
+        tools:layout="@layout/fragment_map" />
+
+    <fragment
+        android:id="@+id/nav_friend"
+        android:name="com.mcwindy.ddrhelper.ui.friend.FriendFragment"
+        android:label="@string/menu_friend"
+        tools:layout="@layout/fragment_friend" />
+
+    <fragment
+        android:id="@+id/nav_clan"
+        android:name="com.mcwindy.ddrhelper.ui.clan.ClanFragment"
+        android:label="@string/menu_clan"
+        tools:layout="@layout/fragment_clan" />
+
+    <fragment
+        android:id="@+id/nav_rank"
+        android:name="com.mcwindy.ddrhelper.ui.rank.RankFragment"
+        android:label="@string/menu_rank"
+        tools:layout="@layout/fragment_rank">
+        <action
+            android:id="@+id/action_rankFragment_to_homeFragment"
+            app:destination="@id/nav_home" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_server"
+        android:name="com.mcwindy.ddrhelper.ui.server.ServerFragment"
+        android:label="@string/menu_server"
+        tools:layout="@layout/fragment_server">
+        <action
+            android:id="@+id/action_serverFragment_to_clientsFragment"
+            app:destination="@id/nav_clients" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_clients"
+        android:name="com.mcwindy.ddrhelper.ui.server.clients.ClientsFragment"
+        android:label="@string/menu_clients"
+        tools:layout="@layout/fragment_clients" />
+
+    <fragment
+        android:id="@+id/nav_skin"
+        android:name="com.mcwindy.ddrhelper.ui.skin.SkinFragment"
+        android:label="@string/menu_skin"
+        tools:layout="@layout/fragment_skin" />
+
+    <fragment
+        android:id="@+id/nav_binding"
+        android:name="com.mcwindy.ddrhelper.ui.binding.BindingFragment"
+        android:label="@string/menu_binding"
+        tools:layout="@layout/fragment_binding" />
+
+    <fragment
+        android:id="@+id/nav_setting"
+        android:name="com.mcwindy.ddrhelper.ui.setting.SettingFragment"
+        android:label="@string/menu_setting"
+        tools:layout="@layout/fragment_setting" />
+
+    <fragment
+        android:id="@+id/nav_about"
+        android:name="com.mcwindy.ddrhelper.ui.about.AboutFragment"
+        android:label="@string/menu_setting"
+        tools:layout="@layout/fragment_about" />
+</navigation>

@@ -1,0 +1,78 @@
+<resources>
+    <string name="app_name">ddr helper</string>
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
+    <string name="nav_header_desc" translatable="false">Navigation header</string>
+    <string name="nav_header_title" translatable="false">mcwindy</string>
+    <string name="nav_header_subtitle" translatable="false">mcwindy0@outlook.com</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_preferences">Preferences</string>
+    <string name="action_filter_server">Filter</string>
+    <string name="action_add_friend">Add friend</string>
+    <string name="action_search">Search</string>
+
+    <string name="player_points0">Total %1$d points</string>
+    <string name="player_points">%1$d points</string>
+    <string name="player_rank">%1$d rank</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_map">Map</string>
+    <string name="menu_friend">Friend</string>
+    <string name="menu_clan">Clan</string>
+    <string name="menu_rank">Rank</string>
+    <string name="menu_setting">Setting</string>
+    <string name="menu_server">Server</string>
+
+    <string name="point">point</string>
+    <string name="points">Points</string>
+    <string name="rank_points">Rank points</string>
+    <string name="team_rank_points">Team rank points</string>
+    <string name="refreshing">Refreshing</string>
+    <string name="last_update_time">Last update:</string>
+    <string name="Point">Points</string>
+    <string name="Rank">Rank points</string>
+    <string name="Team_rank">Team rank points</string>
+    <string name="index">Index</string>
+    <string name="id">ID</string>
+    <string name="country">Country</string>
+    <string name="novice">Novice</string>
+    <string name="moderate">Moderate</string>
+    <string name="brutal">Brutal</string>
+    <string name="insane">Insane</string>
+    <string name="ddmax_easy">Ddmax.easy</string>
+    <string name="ddmax_next">Ddmax.normal</string>
+    <string name="ddmax_pro">Ddmax.hard</string>
+    <string name="ddmax_nut">Nut</string>
+    <string name="oldschool">Oldschool</string>
+    <string name="solo">Solo</string>
+    <string name="dummy">Dummy</string>
+    <string name="race">Race</string>
+    <string name="submit">Submit</string>
+    <string name="progress">Progress</string>
+    <string name="finish_percent" translatable="false">%1$d / %2$d (%3$d%%)</string>
+    <string name="add_friend">Add friend</string>
+    <string name="menu_about">About</string>
+    <string name="menu_skin">Skin</string>
+    <string name="menu_binding">Binding</string>
+    <string name="no_rank">No rank</string>
+    <string name="network_error">Network error</string>
+    <string name="ip_copied">IP copied</string>
+    <string name="name_copied">ID copied</string>
+    <string name="command_copied">Command copied</string>
+    <string name="bot">Bot</string>
+    <string name="menu_gores" translatable="false">Gores</string>
+    <string name="menu_clients">Clients</string>
+    <string name="sorted_by">Sorted by</string>
+    <string name="filter">Filter</string>
+    <string name="classify_by">Classify by</string>
+    <string name="ignore_empty_servers">Ignore empty servers</string>
+    <string name="show_gores_servers">Show gores servers</string>
+    <string name="show_ddnet_servers">Show ddnet servers</string>
+    <string name="show_chn_servers">Show CHN servers</string>
+    <string name="increase_num_clients">Number of players from small to big</string>
+    <string name="decrease_num_clients">Number of players from big to small</string>
+    <string name="no_classify">No classification</string>
+    <string name="by_ip">By ip</string>
+    <string name="by_version">By server version</string>
+    <string name="search_player_id">Search player id …</string>
+</resources>

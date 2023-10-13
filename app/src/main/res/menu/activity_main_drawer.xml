@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group
+        android:id="@+id/menu_group"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home_24dp"
+            android:title="@string/menu_home" />
+<!--        <item-->
+<!--            android:id="@+id/nav_map"-->
+<!--            android:icon="@drawable/ic_menu_camera"-->
+<!--            android:title="@string/menu_map" />-->
+<!--        <item-->
+<!--            android:id="@+id/nav_friend"-->
+<!--            android:icon="@drawable/ic_star_24dp"-->
+<!--            android:title="@string/menu_friend" />-->
+<!--        <item-->
+<!--            android:id="@+id/nav_clan"-->
+<!--            android:icon="@drawable/ic_star_24dp"-->
+<!--            android:title="@string/menu_clan" />-->
+        <item
+            android:id="@+id/nav_rank"
+            android:icon="@drawable/ic_star_24dp"
+            android:title="@string/menu_rank" />
+        <item
+            android:id="@+id/nav_server"
+            android:icon="@drawable/globe_24px"
+            android:title="@string/menu_server" />
+<!--        <item-->
+<!--            android:id="@+id/nav_skin"-->
+<!--            android:icon="@drawable/ic_star_24dp"-->
+<!--            android:title="@string/menu_skin" />-->
+        <item
+            android:id="@+id/nav_binding"
+            android:icon="@drawable/keyboard_external_input_24px"
+            android:title="@string/menu_binding" />
+    </group>
+    <group>
+        <item
+            android:id="@+id/nav_gores"
+            android:icon="@drawable/ic_star_24dp"
+            android:title="@string/menu_gores" />
+    </group>
+    <group
+        android:id="@+id/nav_group_communicate"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_setting"
+            android:icon="@drawable/ic_settings_24dp"
+            android:title="@string/menu_setting" />
+        <item
+            android:id="@+id/nav_about"
+            android:icon="@drawable/ic_info_24dp"
+            android:title="@string/menu_about" />
+    </group>
+</menu>
