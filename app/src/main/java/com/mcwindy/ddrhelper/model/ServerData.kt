@@ -150,8 +150,17 @@ data class ServerData(
                 isMultiSupport = bundle.getBoolean("isMultiSupport"),
                 firstSeen = Date(bundle.getLong("firstSeen")),
                 lastSeen = Date(bundle.getLong("lastSeen")),
-                clients = bundle.getParcelableArrayList("clients")!!
+                clients = bundle.parcelableArrayList<ClientData>("clients")!!
             )
         }
+    }
+}
+
+inline fun <reified T : Parcelable> Bundle.parcelableArrayList(key: String): ArrayList<T>? {
+    return if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+        getParcelableArrayList(key, T::class.java)
+    } else {
+        @Suppress("DEPRECATION")
+        getParcelableArrayList(key)
     }
 }

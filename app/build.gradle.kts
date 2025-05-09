@@ -1,10 +1,7 @@
-import com.google.firebase.crashlytics.buildtools.gradle.CrashlyticsExtension
-
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("com.google.devtools.ksp")
-    id("kotlin-kapt")
     id("androidx.navigation.safeargs.kotlin")
     // Add the Crashlytics Gradle plugin
     id("com.google.firebase.crashlytics")
@@ -12,23 +9,16 @@ plugins {
 
 android {
     namespace = "com.mcwindy.ddrhelper"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.mcwindy.ddrhelper"
         minSdk = 26
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "0.3"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-
-        ndk {
-            // abiFilters "x86-64"
-            abiFilters.add("x86_64")
-            // abiFilters "arm64-v8a"
-        }
-
     }
 
     lint {
@@ -38,7 +28,8 @@ android {
         release {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
             )
             // Add this extension
             configure<CrashlyticsExtension> {

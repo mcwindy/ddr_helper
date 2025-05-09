@@ -38,7 +38,6 @@
                 android:layout_height="200dp"
                 android:layout_margin="10dp"
                 app:srcCompat="@drawable/icon_author" />
-
         </LinearLayout>
 
         <LinearLayout
@@ -65,15 +64,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_margin="10dp"
-                app:srcCompat="@drawable/boardless_icon_group" />
-
+                app:srcCompat="@drawable/borderless_icon_group" />
         </LinearLayout>
 
         <TextView
             android:id="@+id/text_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="本应用正在开发阶段\n当前版本有效期至12月1日\n加入QQ群获取最新动态"
+            android:text="本应用正在开发阶段\n当前版本有效期至6月1日\n加入QQ群获取最新动态"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
