@@ -9,28 +9,28 @@ import java.util.Date
 
 @JsonClass(generateAdapter = true)
 data class ServerData(
-    @Json(name = "server_id") val serverId: Int,
+    @param:Json(name = "server_id") val serverId: Int,
     val ip: String,
     val port: Int,
     val name: String,
     val map: String,
-    @Json(name = "gametype") val gameType: String,
+    @param:Json(name = "gametype") val gameType: String,
     val version: String,
     val password: Boolean,
-    @Json(name = "server_level") val serverLevel: Int,
+    @param:Json(name = "server_level") val serverLevel: Int,
     val hostname: String,
-    @Json(name = "master_server") val masterServer: String,
-    @Json(name = "num_clients") val numClients: Int,
-    @Json(name = "max_clients") val maxClients: Int,
-    @Json(name = "num_players") val numPlayers: Int,
-    @Json(name = "max_players") val maxPlayers: Int,
-    @Json(name = "num_bot_players") val numBotPlayers: Int,
-    @Json(name = "num_bot_spectators") val numBotSpectators: Int,
-    @Json(name = "num_dummies") val numDummies: Int,
-    @Json(name = "is_legacy") val isLegacy: Boolean,
-    @Json(name = "is_multi_support") val isMultiSupport: Boolean,
-    @Json(name = "first_seen") val firstSeen: Date,
-    @Json(name = "last_seen") val lastSeen: Date,
+    @param:Json(name = "master_server") val masterServer: String,
+    @param:Json(name = "num_clients") val numClients: Int,
+    @param:Json(name = "max_clients") val maxClients: Int,
+    @param:Json(name = "num_players") val numPlayers: Int,
+    @param:Json(name = "max_players") val maxPlayers: Int,
+    @param:Json(name = "num_bot_players") val numBotPlayers: Int,
+    @param:Json(name = "num_bot_spectators") val numBotSpectators: Int,
+    @param:Json(name = "num_dummies") val numDummies: Int,
+    @param:Json(name = "is_legacy") val isLegacy: Boolean,
+    @param:Json(name = "is_multi_support") val isMultiSupport: Boolean,
+    @param:Json(name = "first_seen") val firstSeen: Date,
+    @param:Json(name = "last_seen") val lastSeen: Date,
     val clients: List<ClientData>
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
@@ -160,7 +160,6 @@ inline fun <reified T : Parcelable> Bundle.parcelableArrayList(key: String): Arr
     return if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
         getParcelableArrayList(key, T::class.java)
     } else {
-        @Suppress("DEPRECATION")
-        getParcelableArrayList(key)
+        @Suppress("DEPRECATION") getParcelableArrayList(key)
     }
 }

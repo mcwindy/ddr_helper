@@ -31,6 +31,13 @@ enum class FilterOption(val stringResId: Int) {
             return list.filter { it.name.contains(filterRegex) }
         }
     },
+    // SHOW_JPN_SERVERS(R.string.show_jpn_servers) {
+    //     override fun filter(list: List<ServerData>): List<ServerData> {
+    //         return list.filter {
+    //             it.name.contains("JPN")
+    //         }
+    //     }
+    // }
     ;
 
     abstract fun filter(list: List<ServerData>): List<ServerData>

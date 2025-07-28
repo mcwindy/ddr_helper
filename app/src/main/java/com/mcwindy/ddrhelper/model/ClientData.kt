@@ -12,11 +12,11 @@ data class ClientData(
     val clan: String?,
     val country: Int,
     val score: Int,
-    @Json(name = "is_player") val isPlayer: Boolean,
-    @Json(name = "is_bot") val isBot: Boolean,
-    @Json(name = "is_dummy") val isDummy: Boolean,
-    @Json(name = "first_seen") val firstSeen: Date,
-    @Json(name = "last_seen") val lastSeen: Date
+    @param:Json(name = "is_player") val isPlayer: Boolean,
+    @param:Json(name = "is_bot") val isBot: Boolean,
+    @param:Json(name = "is_dummy") val isDummy: Boolean,
+    @param:Json(name = "first_seen") val firstSeen: Date,
+    @param:Json(name = "last_seen") val lastSeen: Date
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString()!!,

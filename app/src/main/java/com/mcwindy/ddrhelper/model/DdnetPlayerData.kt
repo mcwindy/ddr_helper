@@ -15,16 +15,16 @@ import com.squareup.moshi.JsonClass
 data class DdnetPlayerData(
     val player: String,
     val points: Points,
-    @Json(name = "team_rank") val teamRank: Ranks,
+    @param:Json(name = "team_rank") val teamRank: Ranks,
     val rank: Ranks,
-    @Json(name = "points_last_month") val pointsLastMonth: Ranks,
-    @Json(name = "points_last_week") val pointsLastWeek: Ranks,
-    @Json(name = "first_finish") val firstFinish: FirstFinish,
-    @Json(name = "last_finishes") val lastFinishes: List<LastFinish>,
-    @Json(name = "favorite_partners") val favoritePartners: List<FavoritePartner>,
+    @param:Json(name = "points_last_month") val pointsLastMonth: Ranks,
+    @param:Json(name = "points_last_week") val pointsLastWeek: Ranks,
+    @param:Json(name = "first_finish") val firstFinish: FirstFinish,
+    @param:Json(name = "last_finishes") val lastFinishes: List<LastFinish>,
+    @param:Json(name = "favorite_partners") val favoritePartners: List<FavoritePartner>,
     val types: Map<String, Types>,
     val activity: List<Activity>,
-    @Json(name = "hours_played_past_365_days") val hoursPlayedPast365Days: Int,
+    @param:Json(name = "hours_played_past_365_days") val hoursPlayedPast365Days: Int,
     var updateTime: Long = 0 // This is not in the JSON, but is added by the app
 )
 

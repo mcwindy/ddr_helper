@@ -6,7 +6,7 @@ import com.squareup.moshi.JsonClass
 @JsonClass(generateAdapter = true)
 class Types(
     val points: Points,
-    @Json(name = "team_rank") val teamRank: Ranks,
+    @param:Json(name = "team_rank") val teamRank: Ranks,
     val rank: Ranks,
     val maps: Map<String, Finish>
 )

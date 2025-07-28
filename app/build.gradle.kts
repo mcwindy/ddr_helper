@@ -1,3 +1,6 @@
+import com.google.firebase.crashlytics.buildtools.gradle.CrashlyticsExtension
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -9,12 +12,12 @@ plugins {
 
 android {
     namespace = "com.mcwindy.ddrhelper"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.mcwindy.ddrhelper"
         minSdk = 26
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 1
         versionName = "0.3"
 
@@ -28,8 +31,7 @@ android {
         release {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
             // Add this extension
             configure<CrashlyticsExtension> {
@@ -52,9 +54,6 @@ android {
             pickFirsts += "kotlin/coroutines/coroutines.kotlin_builtins" + "xsd/catalog.xml"
         }
     }
-    kotlinOptions {
-        jvmTarget = "17"
-    }
     buildFeatures {
         viewBinding = true
         dataBinding = true
@@ -63,6 +62,12 @@ android {
     // sourceSets.getByName("main") {
     //     jniLibs.setSrcDirs(listOf("jniLibs", "src/main/jniLibs"))
     // }
+}
+
+kotlin {
+    compilerOptions {
+        jvmTarget.set(JvmTarget.JVM_17)
+    }
 }
 
 dependencies {

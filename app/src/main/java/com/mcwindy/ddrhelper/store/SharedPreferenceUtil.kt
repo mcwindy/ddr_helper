@@ -3,6 +3,7 @@ package com.mcwindy.ddrhelper.store
 import android.content.Context
 import android.content.SharedPreferences
 import android.util.Base64
+import androidx.core.content.edit
 import androidx.preference.PreferenceManager
 import java.io.ByteArrayInputStream
 import java.io.ByteArrayOutputStream
@@ -38,7 +39,7 @@ object SharedPreferenceDelegates {
         }
 
         override fun setValue(thisRef: SharedPreferencesUtils, property: KProperty<*>, value: Int) {
-            thisRef.preferences.edit().putInt(property.name, value).apply()
+            thisRef.preferences.edit { putInt(property.name, value) }
         }
     }
 
@@ -50,7 +51,7 @@ object SharedPreferenceDelegates {
         override fun setValue(
             thisRef: SharedPreferencesUtils, property: KProperty<*>, value: Long
         ) {
-            thisRef.preferences.edit().putLong(property.name, value).apply()
+            thisRef.preferences.edit { putLong(property.name, value) }
         }
     }
 
@@ -65,7 +66,7 @@ object SharedPreferenceDelegates {
             override fun setValue(
                 thisRef: SharedPreferencesUtils, property: KProperty<*>, value: Boolean
             ) {
-                thisRef.preferences.edit().putBoolean(property.name, value).apply()
+                thisRef.preferences.edit { putBoolean(property.name, value) }
             }
         }
 
@@ -78,7 +79,7 @@ object SharedPreferenceDelegates {
             override fun setValue(
                 thisRef: SharedPreferencesUtils, property: KProperty<*>, value: Float
             ) {
-                thisRef.preferences.edit().putFloat(property.name, value).apply()
+                thisRef.preferences.edit { putFloat(property.name, value) }
             }
         }
 
@@ -93,7 +94,7 @@ object SharedPreferenceDelegates {
             override fun setValue(
                 thisRef: SharedPreferencesUtils, property: KProperty<*>, value: String
             ) {
-                thisRef.preferences.edit().putString(property.name, value).apply()
+                thisRef.preferences.edit { putString(property.name, value) }
             }
         }
 
@@ -108,7 +109,7 @@ object SharedPreferenceDelegates {
             override fun setValue(
                 thisRef: SharedPreferencesUtils, property: KProperty<*>, value: Set<String>?
             ) {
-                thisRef.preferences.edit().putStringSet(property.name, value).apply()
+                thisRef.preferences.edit { putStringSet(property.name, value) }
             }
         }
 
@@ -144,7 +145,7 @@ object SharedPreferenceDelegates {
                     String(Base64.encode(byteArrayOutputStream.toByteArray(), Base64.DEFAULT))
                 byteArrayOutputStream.close()
                 objectOutputStream.close()
-                thisRef.preferences.edit().putString(property.name, objectStr).apply()
+                thisRef.preferences.edit { putString(property.name, objectStr) }
             }
         }
 }
