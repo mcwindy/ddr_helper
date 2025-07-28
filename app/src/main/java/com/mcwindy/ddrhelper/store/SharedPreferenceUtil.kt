@@ -115,6 +115,7 @@ object SharedPreferenceDelegates {
 
     fun <T : Serializable> obj(defaultValue: T? = null) =
         object : ReadWriteProperty<SharedPreferencesUtils, T?> {
+            @Suppress("UNCHECKED_CAST")
             override fun getValue(
                 thisRef: SharedPreferencesUtils, property: KProperty<*>
             ): T? {
@@ -137,8 +138,7 @@ object SharedPreferenceDelegates {
                 if (value == null) return
                 val byteArrayOutputStream = ByteArrayOutputStream()
                 // 将对象放到OutputStream中
-                val objectOutputStream: ObjectOutputStream =
-                    ObjectOutputStream(byteArrayOutputStream)
+                val objectOutputStream = ObjectOutputStream(byteArrayOutputStream)
                 objectOutputStream.writeObject(value)
                 // 将对象转换成byte数组，并将其进行base64编码
                 val objectStr =

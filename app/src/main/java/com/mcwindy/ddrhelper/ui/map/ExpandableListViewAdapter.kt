@@ -44,7 +44,8 @@ class ExpandableListViewAdapter(
     override fun getGroupView(
         groupPosition: Int, isExpanded: Boolean, convertView: View?, parent: ViewGroup?
     ): View {
-        val view = convertView ?: LayoutInflater.from(context).inflate(R.layout.item_group, null)
+        val view =
+            convertView ?: LayoutInflater.from(context).inflate(R.layout.item_group, parent, false)
         val textView = view.findViewById<TextView>(R.id.department_name)
         textView.text = groups[groupPosition]
 
@@ -58,7 +59,8 @@ class ExpandableListViewAdapter(
         convertView: View?,
         parent: ViewGroup?
     ): View {
-        val view = convertView ?: LayoutInflater.from(context).inflate(R.layout.item_child, null)
+        val view =
+            convertView ?: LayoutInflater.from(context).inflate(R.layout.item_child, parent, false)
         val textView = view.findViewById<TextView>(R.id.class_name)
         textView.text = children[groupPosition][childPosition]
 

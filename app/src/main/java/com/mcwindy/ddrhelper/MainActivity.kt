@@ -70,7 +70,7 @@ class MainActivity : AppCompatActivity() {
 
 
         val currentDate = LocalDate.now() // 获取当前日期
-        val specifiedDate = LocalDate.of(2025, 6, 1) // 指定日期
+        val specifiedDate = LocalDate.of(2026, 1, 1) // 指定日期
         val comparisonResult = currentDate.compareTo(specifiedDate)
         if (comparisonResult >= 0) {
             Toast.makeText(

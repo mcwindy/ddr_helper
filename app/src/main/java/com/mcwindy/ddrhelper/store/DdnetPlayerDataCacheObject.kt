@@ -2,7 +2,7 @@ package com.mcwindy.ddrhelper.store
 
 import android.content.Context
 import android.content.SharedPreferences
-import android.content.res.Resources
+import androidx.core.content.edit
 import com.mcwindy.ddrhelper.model.DdnetPlayerData
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi
@@ -17,7 +17,7 @@ object DdnetPlayerDataCacheObject {
             adapter.fromJson(it)
         }
         set(value) {
-            sharedPref.edit().putString("last_player_data", adapter.toJson(value)).apply() // TODO
+            sharedPref.edit { putString("last_player_data", adapter.toJson(value)) } // TODO
         }
 
     fun init(context: Context) {
