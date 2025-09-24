@@ -66,4 +66,8 @@
     <string name="by_version">按服务器版本</string>
     <string name="action_search">搜索</string>
     <string name="search_player_id">搜索玩家ID…</string>
+    <string name="compare">比较</string>
+    <string name="back">返回</string>
+    <string name="map">地图</string>
+    <string name="player_profile_desc">玩家头像</string>
 </resources>

@@ -108,7 +108,7 @@
                             android:layout_height="80dp"
                             android:layout_gravity="end"
                             android:layout_marginEnd="10dp"
-                            android:contentDescription="player profile"
+                            android:contentDescription="@string/player_profile_desc"
                             app:srcCompat="@drawable/tee" />
                     </LinearLayout>
 
@@ -242,7 +242,7 @@
                         android:id="@+id/switch0"
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
-                        android:text="map"
+                        android:text="@string/map"
                         android:textSize="16sp" />
 
                 </LinearLayout>
@@ -590,14 +590,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:text="Compare" />
+                android:text="@string/compare" />
 
             <Button
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:text="Back" />
+                android:text="@string/back" />
 
         </LinearLayout>
 
