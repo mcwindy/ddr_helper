@@ -1,6 +1,5 @@
 package com.mcwindy.ddrhelper
 
-import android.content.Context
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -22,9 +21,6 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.mcwindy.ddrhelper.databinding.ActivityMainBinding
-import com.mcwindy.ddrhelper.overview.OverviewViewModel
-import com.mcwindy.ddrhelper.store.DdnetPlayerDataCacheObject
 import com.google.android.gms.ads.AdError
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.FullScreenContentCallback
@@ -35,6 +31,9 @@ import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
+import com.mcwindy.ddrhelper.databinding.ActivityMainBinding
+import com.mcwindy.ddrhelper.overview.OverviewViewModel
+import com.mcwindy.ddrhelper.store.DdnetPlayerDataCacheObject
 import com.mcwindy.ddrhelper.store.SharedPreferencesUtils
 import com.mcwindy.ddrhelper.ui.rank.RankViewModel
 import com.mcwindy.ddrhelper.ui.server.ServerViewModel
@@ -47,7 +46,7 @@ class MainActivity : AppCompatActivity() {
         private const val TAG = "MainActivity"
 
         fun hideKeyboard(activity: AppCompatActivity) {
-            val imm = activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            val imm = activity.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
             imm.hideSoftInputFromWindow(activity.currentFocus?.windowToken, 0)
         }
     }
@@ -196,7 +195,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun loadAds() {
         val adRequest = AdRequest.Builder().build()
-        RewardedAd.load(this,
+        RewardedAd.load(
+            this,
             "ca-app-pub-3940256099942544/5224354917",
             adRequest,
             object : RewardedAdLoadCallback() {

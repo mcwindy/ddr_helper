@@ -6,14 +6,17 @@ import java.lang.reflect.Type
 class ResourceAdapter : JsonAdapter.Factory {
     private val type = Types.newParameterizedType(Resource::class.java, DdnetRankData::class.java)
 
-    override fun create(type: Type, annotations: MutableSet<out Annotation>, moshi: Moshi): JsonAdapter<*>? {
+    override fun create(
+        type: Type, annotations: MutableSet<out Annotation>, moshi: Moshi
+    ): JsonAdapter<*>? {
         return if (type == this.type) {
             ResourceJsonAdapter(moshi)
         } else null
     }
 
     private class ResourceJsonAdapter(moshi: Moshi) : JsonAdapter<Resource<DdnetRankData>>() {
-        private val ddnetRankDataAdapter: JsonAdapter<DdnetRankData> = moshi.adapter(DdnetRankData::class.java)
+        private val ddnetRankDataAdapter: JsonAdapter<DdnetRankData> =
+            moshi.adapter(DdnetRankData::class.java)
 
         @ToJson
         override fun toJson(writer: JsonWriter, value: Resource<DdnetRankData>?) {
@@ -24,10 +27,12 @@ class ResourceAdapter : JsonAdapter.Factory {
                     writer.name("data")
                     ddnetRankDataAdapter.toJson(writer, value.data)
                 }
+
                 is Resource.Error -> {
                     writer.name("status").value("error")
                     writer.name("message").value(value.message)
                 }
+
                 else -> {
                     writer.name("status").value("unknown")
                 }

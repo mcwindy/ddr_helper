@@ -122,9 +122,11 @@ class ServerFragment : Fragment() {
                 ClassifyOption.BY_VERSION -> {
                     server.version
                 }
+
                 ClassifyOption.BY_IP -> {
                     server.ip
                 }
+
                 else -> {
                     "All"
                 }

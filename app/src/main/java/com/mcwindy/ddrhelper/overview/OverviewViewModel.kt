@@ -14,7 +14,6 @@ import com.mcwindy.ddrhelper.store.SharedPreferencesUtils
 import java.util.Date
 
 
-/** The [ViewModel] that is attached to the [OverviewFragment]. */
 class OverviewViewModel : ViewModel() {
     companion object {
         private const val TAG = "OverviewViewModel"
@@ -54,7 +53,8 @@ class OverviewViewModel : ViewModel() {
     }
 
     fun getPlayerData(name: String = SharedPreferencesUtils.playerName) {
-        fetchData(viewModelScope,
+        fetchData(
+            viewModelScope,
             apiClient = playerDataClient,
             apiCall = { DdnetApi.retrofitService.getPlayerData(name) },
             onSuccess = { result ->

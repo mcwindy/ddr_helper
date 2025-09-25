@@ -27,7 +27,8 @@ class RankViewModel : ViewModel() {
 
     private val rankDataClient = RateLimitedApiClient<Any>(30L)
     fun getRankData(activity: FragmentActivity) {
-        FetchData.fetchData(viewModelScope,
+        FetchData.fetchData(
+            viewModelScope,
             apiClient = rankDataClient,
             apiCall = { DdnetApi.getRankData(viewModelScope) },
             onSuccess = { result ->

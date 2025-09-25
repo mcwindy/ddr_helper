@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "238481309098",
+    "project_id": "ddr-helper",
+    "storage_bucket": "ddr-helper.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:238481309098:android:5477eaef7858237abcffd3",
+        "android_client_info": {
+          "package_name": "com.mcwindy.ddrhelper"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkIjzbyQoJt-0mOdq0UN_d1MyY3qnG3V8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

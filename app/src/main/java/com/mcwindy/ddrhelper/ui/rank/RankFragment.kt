@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.tabs.TabLayout
 import com.mcwindy.ddrhelper.R
 import com.mcwindy.ddrhelper.databinding.FragmentRankBinding
-import com.google.android.material.tabs.TabLayout
 import com.mcwindy.ddrhelper.model.DdnetRankData
 import com.mcwindy.ddrhelper.model.Resource
 import com.mcwindy.ddrhelper.model.ResourceAdapter

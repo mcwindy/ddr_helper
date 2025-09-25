@@ -34,14 +34,16 @@ class ListClientAdapter(list: List<ClientData>, context: Context) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val dateFormat =
-            SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.CHINA)
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.CHINA)
         val data = list[position]
         // holder.skin.setImageResource(data.skinRes)
         holder.name.text = data.name
         holder.clan.text = data.clan
         holder.first.text = dateFormat.format(data.firstSeen)
-        holder.type.text = if (data.isBot) context.getString(R.string.bot) else if (data.isDummy) context.getString(R.string.dummy) else ""
+        holder.type.text =
+            if (data.isBot) context.getString(R.string.bot) else if (data.isDummy) context.getString(
+                R.string.dummy
+            ) else ""
         holder.country.text = data.country.toString()
 
         // notifyDataSetChanged()

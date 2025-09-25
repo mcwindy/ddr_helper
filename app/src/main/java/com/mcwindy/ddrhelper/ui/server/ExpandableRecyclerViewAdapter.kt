@@ -148,7 +148,9 @@ class ExpandableRecyclerViewAdapter(
                 val clip = ClipData.newPlainText("Server IP", serverIp.text)
                 clipboard.setPrimaryClip(clip)
                 Toast.makeText(
-                    itemView.context, itemView.context.getString(R.string.ip_copied), Toast.LENGTH_LONG
+                    itemView.context,
+                    itemView.context.getString(R.string.ip_copied),
+                    Toast.LENGTH_LONG
                 ).show()
                 true
             }

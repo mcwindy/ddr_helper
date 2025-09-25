@@ -7,6 +7,7 @@ plugins {
     id("com.google.devtools.ksp")
     id("androidx.navigation.safeargs.kotlin")
     // Add the Crashlytics Gradle plugin
+    id("com.google.gms.google-services")
     id("com.google.firebase.crashlytics")
 }
 
@@ -24,12 +25,10 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    lint {
-        baseline = file("lint-baseline.xml")
-    }
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
@@ -40,6 +39,7 @@ android {
                 // This flag must be enabled to see properly-symbolicated native
                 // stack traces in the Crashlytics dashboard.
                 nativeSymbolUploadEnabled = true
+                mappingFileUploadEnabled = true
             }
         }
     }
@@ -51,7 +51,9 @@ android {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
             excludes += "mozilla/public-suffix-list.txt"
-            pickFirsts += "kotlin/coroutines/coroutines.kotlin_builtins" + "xsd/catalog.xml"
+            pickFirsts += setOf(
+                "kotlin/coroutines/coroutines.kotlin_builtins", "xsd/catalog.xml"
+            )
         }
     }
     buildFeatures {
@@ -65,6 +67,7 @@ android {
 }
 
 kotlin {
+    jvmToolchain(17)
     compilerOptions {
         jvmTarget.set(JvmTarget.JVM_17)
     }

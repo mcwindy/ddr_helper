@@ -34,8 +34,10 @@ class MapFragment : Fragment() {
         val classes = listOf(
             listOf("一年甲班", "二年甲班", "三年甲班", "四年甲班"),
             listOf("一年甲班", "二年甲班", "三年甲班", "四年甲班"),
-            listOf("一年甲班", "一年乙班", "二年甲班", "二年乙班",
-                "三年甲班", "三年乙班", "四年甲班", "四年乙班")
+            listOf(
+                "一年甲班", "一年乙班", "二年甲班", "二年乙班",
+                "三年甲班", "三年乙班", "四年甲班", "四年乙班"
+            )
         )
 
         val adapter = ExpandableListViewAdapter(requireContext(), departments, classes)

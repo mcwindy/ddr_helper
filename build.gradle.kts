@@ -6,7 +6,7 @@ plugins {
     // Make sure that you have the Google services Gradle plugin 4.4.1+ dependency
     id("com.google.gms.google-services") version "4.4.3" apply false
     // Add the dependency for the Crashlytics Gradle plugin
-    id("com.google.firebase.crashlytics") version "3.0.5" apply false
+    id("com.google.firebase.crashlytics") version "3.0.6" apply false
 }
 
 buildscript {

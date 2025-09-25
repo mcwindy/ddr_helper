@@ -2,19 +2,19 @@ package com.mcwindy.ddrhelper.store
 
 import android.content.Context
 import android.content.SharedPreferences
-import android.util.Base64
 import androidx.core.content.edit
 import androidx.preference.PreferenceManager
-import java.io.ByteArrayInputStream
-import java.io.ByteArrayOutputStream
-import java.io.ObjectInputStream
-import java.io.ObjectOutputStream
-import java.io.Serializable
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
 
 object SharedPreferencesUtils {
     lateinit var preferences: SharedPreferences
+
+    val moshi: Moshi by lazy {
+        Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
+    }
 
     fun init(context: Context) {
         preferences = PreferenceManager.getDefaultSharedPreferences(context)
@@ -113,39 +113,32 @@ object SharedPreferenceDelegates {
             }
         }
 
-    fun <T : Serializable> obj(defaultValue: T? = null) =
+    inline fun <reified T : Any> json(defaultValue: T? = null) =
         object : ReadWriteProperty<SharedPreferencesUtils, T?> {
-            @Suppress("UNCHECKED_CAST")
-            override fun getValue(
-                thisRef: SharedPreferencesUtils, property: KProperty<*>
-            ): T? {
-                val wordBase64: String =
+            override fun getValue(thisRef: SharedPreferencesUtils, property: KProperty<*>): T? {
+                val stored =
                     thisRef.preferences.getString(property.name, null) ?: return defaultValue
-                // 将base64格式字符串还原成byte数组
-                val objBytes = Base64.decode(wordBase64.toByteArray(), Base64.DEFAULT)
-                val byteArrayOutputStream = ByteArrayInputStream(objBytes)
-                val objectInputStream = ObjectInputStream(byteArrayOutputStream)
-                // 将byte数组转换成product对象
-                val value = objectInputStream.readObject()
-                byteArrayOutputStream.close()
-                objectInputStream.close()
-                return value as T
+                val adapter = thisRef.moshi.adapter(T::class.java)
+                return try {
+                    adapter.fromJson(stored) ?: defaultValue
+                } catch (_: Exception) {
+                    defaultValue
+                }
             }
 
             override fun setValue(
                 thisRef: SharedPreferencesUtils, property: KProperty<*>, value: T?
             ) {
-                if (value == null) return
-                val byteArrayOutputStream = ByteArrayOutputStream()
-                // 将对象放到OutputStream中
-                val objectOutputStream = ObjectOutputStream(byteArrayOutputStream)
-                objectOutputStream.writeObject(value)
-                // 将对象转换成byte数组，并将其进行base64编码
-                val objectStr =
-                    String(Base64.encode(byteArrayOutputStream.toByteArray(), Base64.DEFAULT))
-                byteArrayOutputStream.close()
-                objectOutputStream.close()
-                thisRef.preferences.edit { putString(property.name, objectStr) }
+                if (value == null) {
+                    thisRef.preferences.edit { remove(property.name) }
+                    return
+                }
+                val adapter = thisRef.moshi.adapter(T::class.java)
+                val json = adapter.toJson(value)
+                thisRef.preferences.edit { putString(property.name, json) }
             }
         }
+
+    // For compatibility with previous API name, alias obj() to json() but using Moshi.
+    inline fun <reified T : Any> obj(defaultValue: T? = null) = json<T>(defaultValue)
 }
